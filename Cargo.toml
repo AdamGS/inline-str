@@ -1,0 +1,13 @@
+[package]
+name = "inline-str"
+version = "0.1.0"
+edition = "2021"
+authors = ["Adam Gutglick <adamgsal@gmail.com>"]
+description = "Efficent and immutable string type, backed by inline-array"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/adamgs/inline-str"
+homepage = "https://github.com/adamgs/inline-str"
+readme = "README.md"
+
+[dependencies]
+inline-array = "0.1.13"
