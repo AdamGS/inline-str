@@ -2,7 +2,7 @@
 
 `inline-str` is a small and cheaply cloned string type, intended for use in cases where you expect to be cloning the same short string many times.
 
-It is a thin layer over [`inline-array`](https://github.com/komora-io/inline-array) inspired by @spacejam's work who suggested I build this crate a while back.
+It is a thin layer over [`inline-array`](https://github.com/komora-io/inline-array) inspired by [@spacejam's](https://github.com/spacejam) work who suggested I build this crate a while back.
 
 ## Contributions
 
