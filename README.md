@@ -10,11 +10,12 @@ I implemented things that seem obviously useful to me, but would love to accept 
 
 ## Alternatives
 
-The are many crates with similiar design and purpose, and I highly encourge you to use the one that you like the most:
+The are many crates with similar design and purpose, and I highly encourage you to use the one that you like the most:
 
 - [compact_str](https://github.com/ParkMyCar/compact_str)
 - [inlinable_string](https://github.com/fitzgen/inlinable_string)
 - [hipstr](https://github.com/polazarus/hipstr)
+- [imstr](https://github.com/xfbs/imstr)
 - Any many, many others
 
 ## License

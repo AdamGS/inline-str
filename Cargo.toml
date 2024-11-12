@@ -8,6 +8,8 @@ license = "Apache-2.0 OR MIT"
 repository = "https://github.com/adamgs/inline-str"
 homepage = "https://github.com/adamgs/inline-str"
 readme = "README.md"
+keywords = ["string", "compact", "stack", "immutable", "database"]
+categories = ["data-structures", "compression"]
 
 [dependencies]
 inline-array = "0.1.13"
