@@ -18,6 +18,7 @@ use std::{borrow::Cow, ops::Deref};
 use inline_array::InlineArray;
 
 #[derive(PartialEq, Eq, PartialOrd, Ord)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct InlineStr {
     inner: InlineArray,
 }
@@ -86,19 +87,19 @@ impl<'a> PartialEq<&'a str> for InlineStr {
     }
 }
 
-impl<'a> PartialEq<InlineStr> for &'a str {
+impl PartialEq<InlineStr> for &str {
     fn eq(&self, other: &InlineStr) -> bool {
         other.eq(self)
     }
 }
 
-impl<'a> PartialEq<Cow<'a, str>> for InlineStr {
-    fn eq(&self, other: &Cow<'a, str>) -> bool {
+impl PartialEq<Cow<'_, str>> for InlineStr {
+    fn eq(&self, other: &Cow<'_, str>) -> bool {
         (**self).eq(other)
     }
 }
 
-impl<'a> PartialEq<InlineStr> for Cow<'a, str> {
+impl PartialEq<InlineStr> for Cow<'_, str> {
     fn eq(&self, other: &InlineStr) -> bool {
         other.eq(self)
     }
