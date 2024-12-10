@@ -35,6 +35,13 @@ impl std::fmt::Debug for InlineStr {
     }
 }
 
+impl std::hash::Hash for InlineStr {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        let as_str: &str = &*self;
+        as_str.hash(state);
+    }
+}
+
 impl From<String> for InlineStr {
     fn from(value: String) -> Self {
         Self {
@@ -107,6 +114,8 @@ impl PartialEq<InlineStr> for Cow<'_, str> {
 
 #[cfg(test)]
 mod tests {
+    use std::hash::{BuildHasher, RandomState};
+
     use super::*;
 
     #[test]
@@ -117,5 +126,20 @@ mod tests {
         assert_eq!(words, &*inline_words);
         assert_eq!(words, inline_words);
         assert_eq!(inline_words, words);
+    }
+
+    #[test]
+    fn test_basic_hash() {
+        let hasher = RandomState::new();
+
+        let words = "the quick brown fox";
+        let inline_words = InlineStr::from(words);
+
+        let words_hash = hasher.hash_one(words);
+        let words_hash_2 = hasher.hash_one(words);
+        let inline_hash = hasher.hash_one(inline_words);
+
+        assert_eq!(words_hash, words_hash_2);
+        assert_eq!(words_hash, inline_hash);
     }
 }
