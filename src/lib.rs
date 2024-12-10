@@ -17,7 +17,7 @@ use std::{borrow::Cow, ops::Deref};
 
 use inline_array::InlineArray;
 
-#[derive(PartialEq, Eq, PartialOrd, Ord)]
+#[derive(PartialEq, Eq, PartialOrd, Ord, Clone)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct InlineStr {
     inner: InlineArray,
